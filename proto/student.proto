@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package student
+package student;
 
-option go_package = "github.com/Arturo0911/"
+option go_package = "github.com/Arturo0911/students-test-microservices";
 
 message Student {
     string id = 1;
     string name  = 2;
     int32 age = 3;
-}
+} 
