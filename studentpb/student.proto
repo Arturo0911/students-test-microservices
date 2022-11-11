@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package student;
 
-option go_package = "github.com/Arturo0911/students-test-microservices";
+option go_package = "github.com/Arturo0911/students-test-microservices;studentpb";
 
 message Student {
     string id = 1;

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.9
-// source: proto/student.proto
+// source: studentpb/student.proto
 
-package students_test_microservices
+package studentpb
 
 import (
 	context "context"
@@ -137,5 +137,5 @@ var StudentService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/student.proto",
+	Metadata: "studentpb/student.proto",
 }
