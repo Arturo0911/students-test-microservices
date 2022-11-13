@@ -29,7 +29,7 @@ func (repo *PostgresRepository) SetStudent(ctx context.Context, student *models.
 }
 
 func (repo *PostgresRepository) GetStudent(ctx context.Context, id string) (*models.Student, error) {
-	rows, err := repo.db.QueryContext(ctx, "SELECT id, name, age FROMN students WHERE id = $1", id)
+	rows, err := repo.db.QueryContext(ctx, "SELECT id, name, age FROM students WHERE id = $1", id)
 	if err != nil {
 		return nil, err
 	}
