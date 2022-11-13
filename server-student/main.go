@@ -5,6 +5,10 @@ import (
 	"net"
 
 	"github.com/Arturo0911/students-test-microservices/database"
+	"github.com/Arturo0911/students-test-microservices/server"
+	"github.com/Arturo0911/students-test-microservices/studentpb"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 func main() {
@@ -13,4 +17,16 @@ func main() {
 		log.Fatal(err)
 	}
 	repo, err := database.NewPostgresRepository("postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable")
+	server := server.NewStudentServer(repo)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	s := grpc.NewServer()
+	studentpb.RegisterStudentServiceServer(s, server)
+
+	reflection.Register(s)
+	if err := s.Serve(list); err != nil {
+		log.Fatal(err)
+	}
 }
